@@ -101,14 +101,15 @@ class TestFs(pyfuse3.Operations):
         name = self.inode_name[fh]
 
         try:
-            answers = dns.resolver.resolve(name.decode("utf-8"), self.record_type)
+            answers = dns.resolver.resolve(name.decode("utf-8"), self.record_type, tcp=True)
         except:
             answers = []
 
-        if start_id == 0:
-            for i, rdata in enumerate(list(answers)):
-                pyfuse3.readdir_reply(
-                    token, rdata.to_text().replace("/", "／").encode("utf-8"), await self.getattr(2048 + i + 1, ttl=answers.rrset.ttl), 2048 + i + 1)
+        for i, rdata in enumerate(list(answers)):
+            if start_id > i:
+                continue
+            pyfuse3.readdir_reply(
+                token, rdata.to_text().replace("/", "⧸").encode("utf-8"), await self.getattr(2048 + i + 1, ttl=answers.rrset.ttl), i + 1)
         return
 
     async def setxattr(self, inode, name, value, ctx):
