@@ -1,0 +1,15 @@
+
+    ____  _   _______                            ____
+   / __ \/ | / / ___/   ____ _   _____  _____   / __ \_______  ______  _____
+  / / / /  |/ /\__ \   / __ \ | / / _ \/ ___/  / /_/ / ___/ / / / __ \/ ___/
+ / /_/ / /|  /___/ /  / /_/ / |/ /  __/ /     / _, _(__  ) /_/ / / / / /__
+/_____/_/ |_//____/   \____/|___/\___/_/     /_/ |_/____/\__, /_/ /_/\___/
+                                                        /____/
+
+         The future of DNS transport protocols.  By Koen van Hove.
+
+QUERYING A DOMAIN:
+rsync rsync://thuis.koenvanhove.nl/A/koenvh.nl/
+
+DOWNLOADING THE WIRE FORMAT:
+rsync rsync://thuis.koenvanhove.nl/A/koenvh.nl. ./response.dat
